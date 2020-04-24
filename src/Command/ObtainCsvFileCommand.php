@@ -5,9 +5,7 @@ namespace App\Command;
 
 
 use App\Application\GenerateClientsCsvListService;
-use App\Domain\Service\ClientRepository;
 use App\Infrastructure\Domain\Repository\JsonClientRepository;
-use App\UI\Controller\ClientController;
 use GuzzleHttp\Client;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
