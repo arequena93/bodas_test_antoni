@@ -20,6 +20,13 @@ class ObtainCsvFileCommand extends Command
 
     private GenerateClientsCsvListService $generateClientsCsvListService;
 
+    // THIS WOULD BE A BETTER APPROACH (with dependency injection)
+    //public function __construct(GenerateClientsCsvListService $generateClientsCsvListService)
+    //{
+    //    $this->generateClientsCsvListService = $generateClientsCsvListService;
+    //    parent::__construct();
+    //}
+
     protected function configure(): void
     {
         $this->addArgument('xmlFile', InputArgument::REQUIRED);
