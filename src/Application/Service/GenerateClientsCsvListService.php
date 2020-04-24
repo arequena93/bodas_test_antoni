@@ -1,34 +1,26 @@
 <?php
 
 
-namespace App\Application;
+namespace App\Application\Service;
 
 
 use App\Domain\Repository\ClientRepository;
 
 class GenerateClientsCsvListService
 {
-    private ClientRepository $clientRepo;
+    private ClientRepository $clientRepo1;
+    private ClientRepository $clientRepo2;
 
-    public function __construct(ClientRepository $clientRepo)
+    public function __construct(ClientRepository $clientRepo1, ClientRepository $clientRepo2)
     {
-        $this->clientRepo = $clientRepo;
+        $this->clientRepo1 = $clientRepo1;
+        $this->clientRepo2 = $clientRepo2;
     }
 
-    public function execute(string $xmlData): array
+    public function execute(): array
     {
-        $resultSource1 = $this->clientRepo->all();
-
-        $xmlData = simplexml_load_string($xmlData);
-        $resultSource2 = array();
-        foreach($xmlData as $client) {
-            $resultSource2[] = array(
-                (string) $client->attributes()['name'],
-                (string) $client,
-                (string) $client->attributes()['phone'],
-                (string) $client->attributes()['company']
-            );
-        }
+        $resultSource1 = $this->clientRepo1->all();
+        $resultSource2 = $this->clientRepo2->all();
 
         return array_merge($resultSource1, $resultSource2);
     }
