@@ -4,7 +4,7 @@
 namespace App\Application;
 
 
-use App\Domain\Service\ClientRepository;
+use App\Domain\Repository\ClientRepository;
 
 class GenerateClientsCsvListService
 {

@@ -5,7 +5,7 @@ namespace App\Infrastructure\Domain\Repository;
 
 
 use App\Domain\Entity\Client;
-use App\Domain\Service\ClientRepository;
+use App\Domain\Repository\ClientRepository;
 use GuzzleHttp\ClientInterface;
 
 class JsonClientRepository implements ClientRepository
